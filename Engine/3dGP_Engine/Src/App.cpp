@@ -25,6 +25,7 @@ void App::Run(const AppConfig& config)
 	auto handle = myWindow.GetWindowHandle();
 	GraphicsSystem::StaticInitialize(handle, false);
 	InputSystem::StaticInitialize(handle);
+	TextureManager::StaticInitialize(L"../../Assets/Textures/");
 
 	// initialize starting state
 	ASSERT(mCurrentState != nullptr, "App: no state is set");
@@ -73,6 +74,7 @@ void App::Run(const AppConfig& config)
 	mCurrentState->Terminate();
 
 	//terminate all singletons
+	TextureManager::StaticTerminate();
 	InputSystem::StaticTerminate();
 	GraphicsSystem::StaticTerminate();
 	myWindow.Terminate();

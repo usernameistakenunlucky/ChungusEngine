@@ -9,7 +9,7 @@ using namespace ChungusEngine::Core;
 #define LOG(format, ...)\
 	do{\
 			char _buffer[256]; \
-			int _res = snprintf(_buffer, std::size(_buffer), "(#.3f): " ##format## "\n", TimeUtil::GetTime(), __VA_ARGS__);\
+			int _res = snprintf(_buffer, std::size(_buffer), "(%.3f): " ##format## "\n", TimeUtil::GetTime(), __VA_ARGS__);\
 			OutputDebugStringA(_buffer);\
 	}while(false)
 
